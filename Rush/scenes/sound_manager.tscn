@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://blpij3gca1x2f"]
+
+[ext_resource type="Script" uid="uid://f0oxisulk37v" path="res://scripts/sound_manager.gd" id="1_gbdfy"]
+
+[node name="SoundManager" type="Node" node_paths=PackedStringArray("_bgm", "_bgm_paused")]
+script = ExtResource("1_gbdfy")
+_bgm = NodePath("BGM")
+_bgm_paused = NodePath("BGM_PAUSED")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+
+[node name="BGM_PAUSED" type="AudioStreamPlayer" parent="."]
+bus = &"BGM_Paused"
