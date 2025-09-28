@@ -38,18 +38,69 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="LeaderSlot" type="PanelContainer" parent="Things/Field/EnemyField"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 84.0
+offset_right = 472.0
+offset_bottom = 243.0
+metadata/_edit_lock_ = true
+
+[node name="FollowerSlot" type="PanelContainer" parent="Things/Field/EnemyField"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 43.0
+offset_right = 235.0
+offset_bottom = 202.0
+metadata/_edit_lock_ = true
+
+[node name="FollowerSlot2" type="PanelContainer" parent="Things/Field/EnemyField"]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 43.0
+offset_right = 718.0
+offset_bottom = 202.0
+metadata/_edit_lock_ = true
 
 [node name="Division" type="Panel" parent="Things/Field"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 mouse_filter = 1
+metadata/_edit_lock_ = true
 
 [node name="PlayerField" type="Panel" parent="Things/Field"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.3
 mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="LeaderSlot" type="PanelContainer" parent="Things/Field/PlayerField"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 37.0
+offset_right = 472.0
+offset_bottom = 196.0
+metadata/_edit_lock_ = true
+
+[node name="FollowerSlot" type="PanelContainer" parent="Things/Field/PlayerField"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 99.0
+offset_right = 235.0
+offset_bottom = 258.0
+metadata/_edit_lock_ = true
+
+[node name="FollowerSlot2" type="PanelContainer" parent="Things/Field/PlayerField"]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 99.0
+offset_right = 718.0
+offset_bottom = 258.0
+metadata/_edit_lock_ = true
 
 [node name="RightGutter" type="Panel" parent="Things"]
 layout_mode = 2
@@ -60,5 +111,10 @@ metadata/_edit_lock_ = true
 
 [node name="CardHandler" type="Node2D" parent="."]
 script = ExtResource("1_6pmjc")
+metadata/_edit_lock_ = true
 
 [node name="Card" parent="CardHandler" instance=ExtResource("2_ttalb")]
+
+[node name="PlayerDeckAndHand" type="Node2D" parent="."]
+
+[node name="EnemyDeckAndHand" type="Node2D" parent="."]

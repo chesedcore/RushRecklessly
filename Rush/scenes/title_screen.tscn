@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cscdryjcof1hb"]
 
-[ext_resource type="Script" uid="uid://cg31pbux25747" path="res://Script/title_screen.gd" id="1_klylv"]
-[ext_resource type="PackedScene" uid="uid://d21jndjhn34a1" path="res://Scenes/options_menu.tscn" id="2_p3fck"]
+[ext_resource type="Script" uid="uid://cg31pbux25747" path="res://scripts/title_screen.gd" id="1_klylv"]
+[ext_resource type="PackedScene" uid="uid://d21jndjhn34a1" path="res://scenes/options_menu.tscn" id="2_p3fck"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_klylv")
