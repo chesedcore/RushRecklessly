@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cscdryjcof1hb"]
+[gd_scene load_steps=3 format=3 uid="uid://cscdryjcof1hb"]
 
 [ext_resource type="Script" uid="uid://cg31pbux25747" path="res://Script/title_screen.gd" id="1_klylv"]
+[ext_resource type="PackedScene" uid="uid://d21jndjhn34a1" path="res://Scenes/options_menu.tscn" id="2_p3fck"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_klylv")
@@ -36,3 +37,6 @@ text = "Options"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Credits"
+
+[node name="OptionsMenu" parent="UI" instance=ExtResource("2_p3fck")]
+unique_name_in_owner = true

@@ -9,7 +9,7 @@ func _on_start_game_pressed() -> void:
 	print("Pressed Start")
 
 func _on_options_pressed() -> void:
-	print("Pressed Options")
+	%OptionsMenu.set_menu_visible(true)
 
 func _on_credits_pressed() -> void :
 	print("Pressed Credits")
