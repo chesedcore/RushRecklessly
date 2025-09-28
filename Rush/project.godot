@@ -11,8 +11,21 @@ config_version=5
 [application]
 
 config/name="Rush"
+run/main_scene="uid://dy1lxxvdqv4xw"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Bus="*res://scripts/auto/bus.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [rendering]
 

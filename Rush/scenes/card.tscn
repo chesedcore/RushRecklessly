@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://5fmv1tx4qfjd"]
+
+[ext_resource type="Texture2D" uid="uid://bex636s8xounr" path="res://art/Priest.png" id="1_6u4wf"]
+[ext_resource type="Script" uid="uid://dhfc8pbhshi38" path="res://scripts/wobbly_card.gd" id="1_d81rb"]
+[ext_resource type="Script" uid="uid://2xs1up2ntbbj" path="res://scripts/card.gd" id="1_ktuci"]
+[ext_resource type="Shader" uid="uid://bbu6dy1nspra7" path="res://shadercode/card.gdshader" id="2_kg30u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sy11y"]
+shader = ExtResource("2_kg30u")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg30u"]
+size = Vector2(108, 141.00003)
+
+[node name="Card" type="Node2D" node_paths=PackedStringArray("area")]
+script = ExtResource("1_ktuci")
+area = NodePath("CardVisuals/Area")
+metadata/_edit_lock_ = true
+
+[node name="CardVisuals" type="Node2D" parent="."]
+scale = Vector2(0.08, 0.08)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CardVisuals"]
+material = SubResource("ShaderMaterial_sy11y")
+offset_right = 1536.0
+offset_bottom = 2048.0
+texture = ExtResource("1_6u4wf")
+script = ExtResource("1_d81rb")
+metadata/_edit_lock_ = true
+
+[node name="Area" type="Area2D" parent="CardVisuals"]
+scale = Vector2(14.285714, 14.285714)
+metadata/_edit_lock_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="CardVisuals/Area"]
+position = Vector2(55.000008, 73.5)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_kg30u")
+
+[connection signal="mouse_entered" from="CardVisuals/Area" to="CardVisuals/TextureRect" method="_on_area_mouse_entered"]
+[connection signal="mouse_exited" from="CardVisuals/Area" to="CardVisuals/TextureRect" method="_on_area_mouse_exited"]
