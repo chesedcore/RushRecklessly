@@ -33,10 +33,5 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Options"
 
-[node name="Credits" type="Button" parent="UI/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Credits"
-
 [node name="OptionsMenu" parent="UI" instance=ExtResource("2_p3fck")]
 unique_name_in_owner = true
