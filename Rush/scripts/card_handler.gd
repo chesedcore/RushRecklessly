@@ -14,8 +14,8 @@ func _process(_delta: float) -> void:
 func wire_up_signals() -> void:
 	for card: Card in get_children():
 		#when these cards are freed, the connections are also freed. so no need to manually disconnect
-		card.area.mouse_entered.connect(hovered_card.acquire.bind(card))
-		card.area.mouse_exited.connect(hovered_card.release)
+		card.image_rect.mouse_entered.connect(hovered_card.acquire.bind(card))
+		card.image_rect.mouse_exited.connect(hovered_card.release)
 
 func frame_routine() -> void:
 	card_move_system()
@@ -31,13 +31,16 @@ func card_move_system() -> void:
 	card.global_position = get_global_mouse_position() + _offset_vector
 
 func drop_card() -> void:
-	assert(picked_card.card)
+	if not picked_card.is_locked(): return
 	var card := picked_card.release()
 	Bus.card_dropped.emit(card)
 
 #checks for mouse picks up and drags
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
+		if not Gate.is_unlocked(): return
 		if not hovered_card.card: return #if there is no card being moused over on, why bother
-		if event.pressed: pick_up_card(hovered_card.card)
+		if event.pressed: 
+			if hovered_card.card.is_locked_down: return
+			pick_up_card(hovered_card.card)
 		else: drop_card()

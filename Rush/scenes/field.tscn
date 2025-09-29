@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy1lxxvdqv4xw"]
+[gd_scene load_steps=10 format=3 uid="uid://dy1lxxvdqv4xw"]
 
 [ext_resource type="Script" uid="uid://cjmcng3dq0g58" path="res://scripts/card_handler.gd" id="1_6pmjc"]
+[ext_resource type="Script" uid="uid://cnpb0rbw4ox38" path="res://scripts/level.gd" id="1_7156t"]
+[ext_resource type="PackedScene" uid="uid://c4xht45xksqyp" path="res://scenes/slot.tscn" id="1_lptdg"]
+[ext_resource type="Script" uid="uid://bty4tslfp6yv0" path="res://scripts/field.gd" id="2_pn4dk"]
 [ext_resource type="PackedScene" uid="uid://5fmv1tx4qfjd" path="res://scenes/card.tscn" id="2_ttalb"]
+[ext_resource type="Script" uid="uid://d0y3y3yodi2ht" path="res://scripts/start_combat.gd" id="4_vjqoj"]
+[ext_resource type="Resource" uid="uid://gatisxw7jvnu" path="res://cards/res/gallius.tres" id="6_tcubs"]
+[ext_resource type="Script" uid="uid://d3nuxxeg663tv" path="res://scripts/player_hand.gd" id="6_wnvii"]
+[ext_resource type="Script" uid="uid://dmgp7dc7yuu67" path="res://scripts/enemy_hand.gd" id="9_aaam2"]
 
-[node name="Game" type="Control"]
+[node name="Level" type="Control" node_paths=PackedStringArray("card_handler", "player_hand", "enemy_hand", "field", "warning")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +18,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_7156t")
+card_handler = NodePath("CardHandler")
+player_hand = NodePath("PlayerHandler/PlayerHand")
+enemy_hand = NodePath("EnemyHandler/EnemyHand")
+field = NodePath("Things/Field")
+warning = NodePath("Warning")
 metadata/_edit_lock_ = true
 
 [node name="Things" type="HBoxContainer" parent="."]
@@ -29,9 +42,16 @@ size_flags_stretch_ratio = 0.16
 mouse_filter = 1
 metadata/_edit_lock_ = true
 
-[node name="Field" type="VBoxContainer" parent="Things"]
+[node name="Field" type="VBoxContainer" parent="Things" node_paths=PackedStringArray("enemy_leader_zone", "enemy_follower_zone", "enemy_follower_zone_2", "player_leader_zone", "player_follower_zone", "player_follower_zone_2")]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_pn4dk")
+enemy_leader_zone = NodePath("EnemyField/LeaderSlot")
+enemy_follower_zone = NodePath("EnemyField/FollowerSlot")
+enemy_follower_zone_2 = NodePath("EnemyField/FollowerSlot2")
+player_leader_zone = NodePath("PlayerField/LeaderSlot")
+player_follower_zone = NodePath("PlayerField/FollowerSlot")
+player_follower_zone_2 = NodePath("PlayerField/FollowerSlot2")
 metadata/_edit_lock_ = true
 
 [node name="EnemyField" type="Panel" parent="Things/Field"]
@@ -40,29 +60,29 @@ size_flags_vertical = 3
 mouse_filter = 1
 metadata/_edit_lock_ = true
 
-[node name="LeaderSlot" type="PanelContainer" parent="Things/Field/EnemyField"]
-layout_mode = 0
-offset_left = 374.0
-offset_top = 84.0
-offset_right = 472.0
-offset_bottom = 243.0
-metadata/_edit_lock_ = true
+[node name="LeaderSlot" parent="Things/Field/EnemyField" instance=ExtResource("1_lptdg")]
+layout_mode = 1
+anchor_left = 0.48558247
+anchor_top = 0.60294116
+anchor_right = 0.48558247
+anchor_bottom = 0.60294116
+zone_owned_by = 1
 
-[node name="FollowerSlot" type="PanelContainer" parent="Things/Field/EnemyField"]
-layout_mode = 0
-offset_left = 137.0
-offset_top = 43.0
-offset_right = 235.0
-offset_bottom = 202.0
-metadata/_edit_lock_ = true
+[node name="FollowerSlot" parent="Things/Field/EnemyField" instance=ExtResource("1_lptdg")]
+layout_mode = 1
+anchor_left = 0.24798155
+anchor_top = 0.48161766
+anchor_right = 0.24798155
+anchor_bottom = 0.48161766
+zone_owned_by = 1
 
-[node name="FollowerSlot2" type="PanelContainer" parent="Things/Field/EnemyField"]
-layout_mode = 0
-offset_left = 620.0
-offset_top = 43.0
-offset_right = 718.0
-offset_bottom = 202.0
-metadata/_edit_lock_ = true
+[node name="FollowerSlot2" parent="Things/Field/EnemyField" instance=ExtResource("1_lptdg")]
+layout_mode = 1
+anchor_left = 0.7254902
+anchor_top = 0.48161766
+anchor_right = 0.7254902
+anchor_bottom = 0.48161766
+zone_owned_by = 1
 
 [node name="Division" type="Panel" parent="Things/Field"]
 layout_mode = 2
@@ -71,6 +91,22 @@ size_flags_stretch_ratio = 0.05
 mouse_filter = 1
 metadata/_edit_lock_ = true
 
+[node name="StartCombat" type="Button" parent="Things/Field/Division"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-Battle-"
+script = ExtResource("4_vjqoj")
+
 [node name="PlayerField" type="Panel" parent="Things/Field"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -78,29 +114,26 @@ size_flags_stretch_ratio = 1.3
 mouse_filter = 1
 metadata/_edit_lock_ = true
 
-[node name="LeaderSlot" type="PanelContainer" parent="Things/Field/PlayerField"]
-layout_mode = 0
-offset_left = 374.0
-offset_top = 37.0
-offset_right = 472.0
-offset_bottom = 196.0
-metadata/_edit_lock_ = true
+[node name="LeaderSlot" parent="Things/Field/PlayerField" instance=ExtResource("1_lptdg")]
+layout_mode = 1
+anchor_left = 0.48558247
+anchor_top = 0.30140844
+anchor_right = 0.48558247
+anchor_bottom = 0.30140844
 
-[node name="FollowerSlot" type="PanelContainer" parent="Things/Field/PlayerField"]
-layout_mode = 0
-offset_left = 137.0
-offset_top = 99.0
-offset_right = 235.0
-offset_bottom = 258.0
-metadata/_edit_lock_ = true
+[node name="FollowerSlot" parent="Things/Field/PlayerField" instance=ExtResource("1_lptdg")]
+layout_mode = 1
+anchor_left = 0.24913494
+anchor_top = 0.4028169
+anchor_right = 0.24913494
+anchor_bottom = 0.4028169
 
-[node name="FollowerSlot2" type="PanelContainer" parent="Things/Field/PlayerField"]
-layout_mode = 0
-offset_left = 620.0
-offset_top = 99.0
-offset_right = 718.0
-offset_bottom = 258.0
-metadata/_edit_lock_ = true
+[node name="FollowerSlot2" parent="Things/Field/PlayerField" instance=ExtResource("1_lptdg")]
+layout_mode = 1
+anchor_left = 0.7254902
+anchor_top = 0.4056338
+anchor_right = 0.7254902
+anchor_bottom = 0.4056338
 
 [node name="RightGutter" type="Panel" parent="Things"]
 layout_mode = 2
@@ -115,6 +148,38 @@ metadata/_edit_lock_ = true
 
 [node name="Card" parent="CardHandler" instance=ExtResource("2_ttalb")]
 
-[node name="PlayerDeckAndHand" type="Node2D" parent="."]
+[node name="Card2" parent="CardHandler" instance=ExtResource("2_ttalb")]
+card_res = ExtResource("6_tcubs")
 
-[node name="EnemyDeckAndHand" type="Node2D" parent="."]
+[node name="Card3" parent="CardHandler" instance=ExtResource("2_ttalb")]
+
+[node name="PlayerHandler" type="Node2D" parent="."]
+
+[node name="PlayerHand" type="Marker2D" parent="PlayerHandler" node_paths=PackedStringArray("hand")]
+position = Vector2(623, 621)
+script = ExtResource("6_wnvii")
+hand = [NodePath("../../CardHandler/Card"), NodePath("../../CardHandler/Card2"), NodePath("../../CardHandler/Card3")]
+
+[node name="EnemyHandler" type="Node2D" parent="."]
+
+[node name="EnemyHand" type="Marker2D" parent="EnemyHandler"]
+position = Vector2(564, -197)
+script = ExtResource("9_aaam2")
+
+[node name="Warning" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Things/Field/Division/StartCombat" to="Things/Field/Division/StartCombat" method="_on_pressed"]

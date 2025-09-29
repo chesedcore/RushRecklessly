@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Bus="*res://scripts/auto/bus.gd"
 SoundManager="*res://scenes/sound_manager.tscn"
+LevelHandler="*res://scripts/auto/level_handler.gd"
+Gate="*res://scripts/auto/gate.gd"
+ActionHandler="*res://scripts/auto/action_handler.gd"
+Data="*res://scripts/auto/node.tscn"
 
 [debug]
 

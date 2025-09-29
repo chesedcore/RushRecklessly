@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://jt41xkndflah"]
+
+[ext_resource type="Script" uid="uid://bngyaf7t4m4ge" path="res://scripts/auto/data.gd" id="1_o3fpf"]
+[ext_resource type="Resource" uid="uid://gatisxw7jvnu" path="res://cards/res/gallius.tres" id="2_titrp"]
+
+[node name="Data" type="Node"]
+script = ExtResource("1_o3fpf")
+gallius = ExtResource("2_titrp")

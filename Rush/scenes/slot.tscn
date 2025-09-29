@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4xht45xksqyp"]
+
+[ext_resource type="Script" uid="uid://bflhf7txhc7aj" path="res://scripts/slot.gd" id="1_4v6ba"]
+[ext_resource type="Script" uid="uid://bwmk48gc3jd6k" path="res://scripts/backref.gd" id="2_ic0fu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lptdg"]
+bg_color = Color(0.039215688, 0.039215688, 0.039215688, 0.5882353)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lptdg"]
+size = Vector2(122, 173)
+
+[node name="LeaderSlot" type="CenterContainer" node_paths=PackedStringArray("area", "panel")]
+anchors_preset = -1
+anchor_left = 0.4878472
+anchor_top = 0.5441176
+anchor_right = 0.5390625
+anchor_bottom = 0.6728395
+grow_horizontal = 2
+grow_vertical = 2
+use_top_left = true
+script = ExtResource("1_4v6ba")
+area = NodePath("Panel/Area2D")
+panel = NodePath("Panel")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(120, 173)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_lptdg")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="Panel" node_paths=PackedStringArray("ref")]
+position = Vector2(60, 87)
+collision_layer = 2
+script = ExtResource("2_ic0fu")
+ref = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Area2D"]
+position = Vector2(1, -1.5)
+shape = SubResource("RectangleShape2D_lptdg")
+metadata/_edit_lock_ = true
