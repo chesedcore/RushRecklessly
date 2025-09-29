@@ -29,6 +29,7 @@ func start_combat() -> void:
 	await resolve_combat_end_effects()
 	reset_slot_pull()
 	bounce_cards_to_hand()
+	LevelHandler.level.enemy_hand.slot_into_zones()
 	Gate.main_unlocked.emit()
 	Bus.combat_ended.emit()
 	in_combat = false
@@ -49,6 +50,7 @@ func bounce_cards_to_hand() -> void:
 		var card := slot.registered_card.get_ref()
 		card.is_locked_down = false
 		tween.parallel().tween_property(card, "global_position", LevelHandler.level.enemy_hand.global_position, 0.5)
+		slot.unregister_card()
 
 func resolve_combat_start_effects() -> void:
 	var all_slots := LevelHandler.level.field.get_all_slots()
