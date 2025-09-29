@@ -1,6 +1,8 @@
 @abstract class_name CardRes extends Resource
 
+@export var name: String
 @export_multiline var flavour_text: String
+@export_multiline var effect: String
 @export var hp: int
 @export var atk: int
 @export var image: CompressedTexture2D

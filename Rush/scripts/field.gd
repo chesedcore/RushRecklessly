@@ -51,6 +51,10 @@ func register_if_card_dropped_by(res: Array[Dictionary], card: Card) -> void:
 	if slot.zone_owned_by == Slot.ZONE.ENEMY: return
 	if slot.is_slotted(): return
 	LevelHandler.level.player_hand.from_hand_to_slot(card, slot)
+	Gate.animation_started.emit()
+	@warning_ignore("redundant_await")
+	await card.card_res._on_summon()
+	Gate.animation_ended.emit()
 	slot.is_locked_down = true
 	card.is_locked_down = true
 
@@ -103,3 +107,15 @@ func get_opposing_card_to(card: Card) -> Card:
 		return generate_opposing_card_pairs()[2][1]
 	
 	return generate_opposing_card_pairs()[2][0]
+
+func get_leader_card_for(card: Card) -> Card:
+	if card.allegiance == Slot.ZONE.PLAYER:
+		return player_leader_zone.registered_card.try_ref()
+	else:
+		return enemy_leader_zone.registered_card.try_ref()
+
+func get_enemy_leader_card_for(card: Card) -> Card:
+	if card.allegiance == Slot.ZONE.PLAYER:
+		return enemy_leader_zone.registered_card.try_ref()
+	else:
+		return player_leader_zone.registered_card.try_ref()

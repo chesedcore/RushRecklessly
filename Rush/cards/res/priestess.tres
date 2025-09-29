@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Priestess" load_steps=3 format=3 uid="uid://gcw0rjohpual"]
+
+[ext_resource type="Texture2D" uid="uid://bex636s8xounr" path="res://art/Priest.png" id="1_3ctud"]
+[ext_resource type="Script" uid="uid://drffpjph2p8c6" path="res://cards/scripts/Priestess.gd" id="1_bphp6"]
+
+[resource]
+script = ExtResource("1_bphp6")
+name = "Priestess"
+flavour_text = "One of the fallen empire's most adorned priestesses."
+effect = "On summon: heal allied Leader by 1."
+hp = 2
+atk = 1
+image = ExtResource("1_3ctud")
+metadata/_custom_type_script = "uid://drffpjph2p8c6"

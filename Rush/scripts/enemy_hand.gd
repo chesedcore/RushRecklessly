@@ -14,6 +14,7 @@ func _ready() -> void:
 func materialise_hand() -> void:
 	for card in enemy_hand:
 		self.add_child(card)
+		card.allegiance = Slot.ZONE.ENEMY
 
 func slot_into_zones() -> void:
 	Gate.animation_started.emit()

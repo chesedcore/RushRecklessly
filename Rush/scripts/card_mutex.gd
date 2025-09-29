@@ -23,3 +23,6 @@ func is_locked() -> bool:
 func get_ref() -> Card:
 	assert(card, "No card to get reference from! Check for race conditions!")
 	return card
+
+func try_ref() -> Card:
+	return card

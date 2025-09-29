@@ -16,6 +16,7 @@ func wire_up_signals() -> void:
 		#when these cards are freed, the connections are also freed. so no need to manually disconnect
 		card.image_rect.mouse_entered.connect(hovered_card.acquire.bind(card))
 		card.image_rect.mouse_exited.connect(hovered_card.release)
+		card.allegiance = Slot.ZONE.PLAYER
 
 func frame_routine() -> void:
 	card_move_system()

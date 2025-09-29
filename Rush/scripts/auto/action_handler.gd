@@ -70,12 +70,34 @@ func resolve_combat_end_effects() -> void:
 		@warning_ignore("redundant_await")
 		await card.card_res._on_battle_end()
 
+func check_deaths() -> void:
+	for slot in LevelHandler.level.field.player_zones:
+		if not slot.is_slotted(): continue
+		var card := slot.registered_card.get_ref()
+		if not card.card_res: continue
+		if card.card_res.hp == 0:
+			await card.card_res._on_destroyed()
+			slot.unregister_card()
+			slot.is_locked_down = false
+			card.die()
+	
+	for slot in LevelHandler.level.field.enemy_zones:
+		if not slot.is_slotted(): continue
+		var card := slot.registered_card.get_ref()
+		if not card.card_res: continue
+		if card.card_res.hp == 0:
+			await card.card_res._on_destroyed()
+			slot.unregister_card()
+			slot.is_locked_down = false
+			card.die()
+
 func clash_pairs() -> void:
 	var opposing_pairs := LevelHandler.level.field.generate_opposing_card_pairs()
 	for card_pair: Array[Card] in opposing_pairs:
 		var player_card: Card = card_pair[0]
 		var enemy_card: Card = card_pair[1]
 		await animate_combat_between(player_card, enemy_card)
+	await check_deaths()
 
 func animate_combat_between(player_card: Card, enemy_card: Card) -> void:
 	if not player_card or not enemy_card: return

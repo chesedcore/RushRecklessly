@@ -5,7 +5,9 @@
 
 [resource]
 script = ExtResource("1_lykwj")
-flavour_text = "Just a guy"
+name = "Gallius"
+flavour_text = "Just a guy."
+effect = "No effect."
 hp = 2
 atk = 2
 image = ExtResource("1_xvj2b")

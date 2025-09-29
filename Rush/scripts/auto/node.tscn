@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://jt41xkndflah"]
+[gd_scene load_steps=5 format=3 uid="uid://jt41xkndflah"]
 
 [ext_resource type="Script" uid="uid://bngyaf7t4m4ge" path="res://scripts/auto/data.gd" id="1_o3fpf"]
 [ext_resource type="Resource" uid="uid://gatisxw7jvnu" path="res://cards/res/gallius.tres" id="2_titrp"]
+[ext_resource type="Resource" uid="uid://gcw0rjohpual" path="res://cards/res/priestess.tres" id="3_f3quh"]
+[ext_resource type="Resource" uid="uid://bfcaafyaxfbt5" path="res://cards/res/celeste.tres" id="4_kpe3f"]
 
 [node name="Data" type="Node"]
 script = ExtResource("1_o3fpf")
 gallius = ExtResource("2_titrp")
+priestess = ExtResource("3_f3quh")
+celeste = ExtResource("4_kpe3f")

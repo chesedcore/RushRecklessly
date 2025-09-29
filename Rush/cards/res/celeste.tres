@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Celeste" load_steps=3 format=3 uid="uid://bfcaafyaxfbt5"]
+
+[ext_resource type="Texture2D" uid="uid://bm1hvlihc7myo" path="res://art/Celeste.png" id="1_7moj8"]
+[ext_resource type="Script" uid="uid://eqqvosb1m2q" path="res://cards/scripts/celeste.gd" id="1_18rye"]
+
+[resource]
+script = ExtResource("1_18rye")
+name = "Celeste"
+flavour_text = "Celeste from the hit game Madeline."
+effect = "No effect."
+hp = 1
+atk = 3
+image = ExtResource("1_7moj8")
+metadata/_custom_type_script = "uid://eqqvosb1m2q"

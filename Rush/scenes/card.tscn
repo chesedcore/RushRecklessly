@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://5fmv1tx4qfjd"]
+[gd_scene load_steps=8 format=3 uid="uid://5fmv1tx4qfjd"]
 
 [ext_resource type="Texture2D" uid="uid://bex636s8xounr" path="res://art/Priest.png" id="1_6u4wf"]
 [ext_resource type="Script" uid="uid://dhfc8pbhshi38" path="res://scripts/wobbly_card.gd" id="1_d81rb"]
 [ext_resource type="Script" uid="uid://2xs1up2ntbbj" path="res://scripts/card.gd" id="1_ktuci"]
 [ext_resource type="Shader" uid="uid://bbu6dy1nspra7" path="res://shadercode/card.gdshader" id="2_kg30u"]
+[ext_resource type="Resource" uid="uid://gcw0rjohpual" path="res://cards/res/priestess.tres" id="2_sy11y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sy11y"]
 resource_local_to_scene = true
@@ -21,6 +22,7 @@ size = Vector2(108, 141.00003)
 script = ExtResource("1_ktuci")
 area = NodePath("CardVisuals/Area")
 image_rect = NodePath("CardVisuals/CenterContainer/TextureRect")
+card_res = ExtResource("2_sy11y")
 metadata/_edit_lock_ = true
 
 [node name="CardVisuals" type="Node2D" parent="."]
