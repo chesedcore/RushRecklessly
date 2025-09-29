@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HarpySnatcher" load_steps=3 format=3 uid="uid://cppxkmwooa5p0"]
+
+[ext_resource type="Texture2D" uid="uid://di1xpx45cijff" path="res://art/Harpy_Snatcher.png" id="1_5jqo4"]
+[ext_resource type="Script" uid="uid://cgrxqu5xmadme" path="res://cards/scripts/harpy_snatcher.gd" id="1_bj5ka"]
+
+[resource]
+script = ExtResource("1_bj5ka")
+name = "Harpy Snatcher"
+flavour_text = "It is not known why they are named snatchers when they straight up kill or maim their targets before stealing."
+effect = "No effect."
+hp = 4
+atk = 1
+image = ExtResource("1_5jqo4")
+metadata/_custom_type_script = "uid://cgrxqu5xmadme"

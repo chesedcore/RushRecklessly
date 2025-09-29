@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Mage" load_steps=3 format=3 uid="uid://bvlkrj26dt5rq"]
+
+[ext_resource type="Texture2D" uid="uid://bngohe84gsc20" path="res://art/Mage.png" id="1_0wtw8"]
+[ext_resource type="Script" uid="uid://vvoqmqroj4c6" path="res://cards/scripts/mage.gd" id="1_xknmu"]
+
+[resource]
+script = ExtResource("1_xknmu")
+name = "Mage"
+flavour_text = "Not the ultimate wizard in terms of attack and defense, but certainly aspires to be."
+effect = "After battle: deal 1 damage to the opposing card."
+image = ExtResource("1_0wtw8")
+metadata/_custom_type_script = "uid://vvoqmqroj4c6"

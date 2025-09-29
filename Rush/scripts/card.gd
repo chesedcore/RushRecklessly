@@ -18,3 +18,7 @@ func _ready() -> void:
 
 func heal(amt: int) -> void:
 	card_res.hp += amt
+
+func take_damage(amt: int) -> void:
+	card_res.hp -= amt
+	card_res.hp = maxi(card_res.hp, 0)

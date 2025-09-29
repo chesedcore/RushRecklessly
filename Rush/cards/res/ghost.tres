@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ghost" load_steps=3 format=3 uid="uid://cy55gage132p1"]
+
+[ext_resource type="Texture2D" uid="uid://dms5x5t7lw4hg" path="res://art/Ghost.png" id="1_noeo3"]
+[ext_resource type="Script" uid="uid://cu5reahbq4qlc" path="res://cards/scripts/ghost.gd" id="1_vxw81"]
+
+[resource]
+script = ExtResource("1_vxw81")
+name = "Ghost"
+flavour_text = "What happens to the soul after the body is no more?"
+effect = "Destroys itself at the end of the turn during which it is summoned."
+atk = 3
+image = ExtResource("1_noeo3")
+metadata/_custom_type_script = "uid://cu5reahbq4qlc"

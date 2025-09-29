@@ -1,12 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://jt41xkndflah"]
+[gd_scene load_steps=13 format=3 uid="uid://jt41xkndflah"]
 
 [ext_resource type="Script" uid="uid://bngyaf7t4m4ge" path="res://scripts/auto/data.gd" id="1_o3fpf"]
 [ext_resource type="Resource" uid="uid://gatisxw7jvnu" path="res://cards/res/gallius.tres" id="2_titrp"]
 [ext_resource type="Resource" uid="uid://gcw0rjohpual" path="res://cards/res/priestess.tres" id="3_f3quh"]
 [ext_resource type="Resource" uid="uid://bfcaafyaxfbt5" path="res://cards/res/celeste.tres" id="4_kpe3f"]
+[ext_resource type="Resource" uid="uid://clq4ilytddyq" path="res://cards/res/doll_head.tres" id="5_kpe3f"]
+[ext_resource type="Resource" uid="uid://cy55gage132p1" path="res://cards/res/ghost.tres" id="6_0kjot"]
+[ext_resource type="Resource" uid="uid://cppxkmwooa5p0" path="res://cards/res/harpy_snatcher.tres" id="7_epdi4"]
+[ext_resource type="Resource" uid="uid://nvuwmuen1vsr" path="res://cards/res/gula.tres" id="8_drxmk"]
+[ext_resource type="Resource" uid="uid://bvlkrj26dt5rq" path="res://cards/res/mage.tres" id="9_aj15y"]
+[ext_resource type="Resource" uid="uid://ccn0ukt8mewph" path="res://cards/res/wind_rider.tres" id="10_drxmk"]
+[ext_resource type="Resource" uid="uid://brp574enpeqpg" path="res://cards/res/slime_knight.tres" id="11_aj15y"]
+[ext_resource type="Resource" uid="uid://ffnkbloksrw7" path="res://cards/res/zombie.tres" id="12_qniau"]
 
 [node name="Data" type="Node"]
 script = ExtResource("1_o3fpf")
-gallius = ExtResource("2_titrp")
 priestess = ExtResource("3_f3quh")
+gallius = ExtResource("2_titrp")
 celeste = ExtResource("4_kpe3f")
+doll_head = ExtResource("5_kpe3f")
+ghost = ExtResource("6_0kjot")
+harpy_snatcher = ExtResource("7_epdi4")
+gula = ExtResource("8_drxmk")
+mage = ExtResource("9_aj15y")
+wind_rider = ExtResource("10_drxmk")
+slime_knight = ExtResource("11_aj15y")
+zombie = ExtResource("12_qniau")

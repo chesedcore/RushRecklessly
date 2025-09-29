@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WindRider" load_steps=3 format=3 uid="uid://ccn0ukt8mewph"]
+
+[ext_resource type="Texture2D" uid="uid://cuk018wjw84w" path="res://art/Wind_Rider.png" id="1_cv5uw"]
+[ext_resource type="Script" uid="uid://bj8vjtu6p7sws" path="res://cards/scripts/wind_rider.gd" id="1_mt182"]
+
+[resource]
+script = ExtResource("1_mt182")
+name = "Wind Rider"
+flavour_text = "A knight forever cursed by a shaman to roam the winds as a listless soul."
+hp = 2
+atk = 2
+image = ExtResource("1_cv5uw")
+metadata/_custom_type_script = "uid://bj8vjtu6p7sws"

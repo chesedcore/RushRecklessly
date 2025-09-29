@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Zombie" load_steps=3 format=3 uid="uid://ffnkbloksrw7"]
+
+[ext_resource type="Script" uid="uid://doeb2jgr6mjet" path="res://cards/scripts/zombie.gd" id="1_2o866"]
+[ext_resource type="Texture2D" uid="uid://b0tulvba1t45x" path="res://art/Zombie.png" id="1_tb057"]
+
+[resource]
+script = ExtResource("1_2o866")
+name = "Zombie"
+flavour_text = "Hates plants, especially of the peas variety."
+hp = 7
+atk = 1
+image = ExtResource("1_tb057")
+metadata/_custom_type_script = "uid://doeb2jgr6mjet"

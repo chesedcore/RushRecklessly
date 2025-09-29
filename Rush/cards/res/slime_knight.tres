@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SlimeKnight" load_steps=3 format=3 uid="uid://brp574enpeqpg"]
+
+[ext_resource type="Texture2D" uid="uid://btopnl14xcdtn" path="res://art/Slime_Knight.png" id="1_28ll4"]
+[ext_resource type="Script" uid="uid://dnnltprxij446" path="res://cards/scripts/slime_knight.gd" id="1_cgjx5"]
+
+[resource]
+script = ExtResource("1_cgjx5")
+name = "Slime Knight"
+flavour_text = "A liquified knight with a solid might."
+hp = 3
+atk = 2
+image = ExtResource("1_28ll4")
+metadata/_custom_type_script = "uid://dnnltprxij446"

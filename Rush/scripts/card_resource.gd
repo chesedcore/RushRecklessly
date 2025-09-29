@@ -2,7 +2,7 @@
 
 @export var name: String
 @export_multiline var flavour_text: String
-@export_multiline var effect: String
+@export_multiline var effect: String = "No effect."
 @export var hp: int
 @export var atk: int
 @export var image: CompressedTexture2D
